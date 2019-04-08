@@ -13,7 +13,7 @@ Released   : 20120705
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>
-  Jia Chen's Research
+  Jia Chen's ◊(select-from-metas 'title metas)
 </title>
 <link href="http://fonts.googleapis.com/css?family=Spectral" rel="stylesheet" type="text/css" />
 <link href="http://fonts.googleapis.com/css?family=Rockwell" rel="stylesheet" type="text/css" />
@@ -30,20 +30,20 @@ Released   : 20120705
     </div>
     <div id="menu">
       <ul>
-        <li class="first">
+        <li ◊(if (equal? "Home" (select-from-metas 'title metas)) "class=\"first active\"" "class=\"first\"")>
           <a href="/index.html">Home</a>
         </li>
-        <li class="active">
+        <li ◊when/splice[(equal? "Research" (select-from-metas 'title metas))]{class="active"}>
           <a href="/research.html">Research</a>
         </li>
-        <li >
+        <li ◊when/splice[(equal? "Blog" (select-from-metas 'title metas))]{class="active"}>
           <a href="#">Blog</a>
         </li>
       </ul><br class="clearfix" />
     </div>
   </div>
   <div id="page">
-    <root><p>After leaving graduate school I am no longer actively involved in academic research.</p><p>When I was a Ph.D. student, my research interest is in the area of static program analysis and verification. My primary academic advisor is <a href="https://www.cs.utexas.edu/~isil/">Isil Dillig</a>, and I am also co-advised by <a href="http://www.cs.utexas.edu/~lin/">Calvin Lin</a>.</p><p>Here is a list of my publications:</p><ul><li>[In Submission to <em>OOPSLA'19</em>]</li><li>Singularity: Pattern Fuzzing for Worst Case Complexity. <em>FSE'18</em><br/>Jiayi Wei, <strong>Jia Chen</strong>, Yu Feng, Kostas Ferles, Isil Dillig<br/><a href="docs/fse18.pdf">[preprint]</a>  <a href="https://github.com/MrVPlusOne/Singularity">[github]</a></li><li>Precise Detection of Side-Channel Vulnerabilities using Quantitative Cartesian Hoare Logic. <em>CCS'17</em><br/><strong>Jia Chen</strong>, Yu Feng, Isil Dillig<br/><a href="docs/ccs17.pdf">[preprint]</a></li><li>Static Detection of Asymptotic Side Channel Vulnerabilities in Web Applications. <em>ASE'17</em><br/><strong>Jia Chen</strong>, Oswaldo Olivo, Isil Dillig, Calvin Lin<br/><a href="docs/ase17.pdf">[preprint]</a></li></ul><p><br class="clearfix"/></p></root>
+    ◊(->html doc)
   </div>
 </div>
 <div id="footer">
